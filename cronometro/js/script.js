@@ -20,9 +20,21 @@ let tenMinutes = 0;
 
 
 
-function getNumberScrolling(value, element, time) {
+function getNumberScrollingTo10(value, element, time) {
     setInterval(() => {
         if (value < 9) {
+            value++;
+            element.innerHTML = value
+        } else {
+            value = 0
+            element.innerHTML = value
+        }
+    }, time);
+}
+
+function getNumberScrollingTo6(value, element, time) {
+    setInterval(() => {
+        if (value < 6) {
             value++;
             element.innerHTML = value
         } else {
@@ -36,10 +48,10 @@ function getNumberScrolling(value, element, time) {
 
 
 avvia.addEventListener("click", function () {
-    getNumberScrolling(cents, centsElement, 10);
-    getNumberScrolling(decSec, decSecElement, 100);
-    getNumberScrolling(seconds, secondsElement, 1000);
-    getNumberScrolling(tenSecs, tenSecsElement, 10000);
-    getNumberScrolling(tenSecs, minutesElement, 60000);
-    getNumberScrolling(tenSecs, tenMinutesElement, 600000);
+    getNumberScrollingTo10(cents, centsElement, 10);
+    getNumberScrollingTo10(decSec, decSecElement, 100);
+    getNumberScrollingTo10(seconds, secondsElement, 1000);
+    getNumberScrollingTo6(tenSecs, tenSecsElement, 10000);
+    getNumberScrollingTo10(minutes, minutesElement, 60000);
+    getNumberScrollingTo6(tenSecs, tenMinutesElement, 600000);
 })
