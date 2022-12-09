@@ -37,6 +37,40 @@ avvia.addEventListener("click", function () {
 
         centsTime = setInterval(() => {
             if (cents < 9) {
+                //condizione che influenza solo i centesimi di secondo
+                cents++;
+                centsElement.innerHTML = cents;
+            } else if (cents < 99){
+                //condizione che influenza dai decimi di secondo in giu
+                cents++;
+                centsElement.innerHTML = cents.toString()[cents.toString().length - 1];
+                decSecElement.innerHTML = cents.toString()[cents.toString().length - 2];
+            } else if (cents < 999){
+                //condizione che influenza dai secondi di secondo in giu
+                cents++;
+                centsElement.innerHTML = cents.toString()[cents.toString().length - 1];
+                decSecElement.innerHTML = cents.toString()[cents.toString().length - 2];
+                secondsElement.innerHTML = cents.toString()[cents.toString().length - 3];
+            } else if (cents < 9999){
+                //condizione che influenza dalle decine di secondi in giu
+                cents++;
+                centsElement.innerHTML = cents.toString()[cents.toString().length - 1];
+                decSecElement.innerHTML = cents.toString()[cents.toString().length - 2];
+                secondsElement.innerHTML = cents.toString()[cents.toString().length - 3];
+                tenSecsElement.innerHTML = cents.toString()[cents.toString().length - 4];
+            } else if (cents < 9999){
+                //condizione che influenza dai minuti di secondo in giu
+                cents++;
+                centsElement.innerHTML = cents.toString()[cents.toString().length - 1];
+                decSecElement.innerHTML = cents.toString()[cents.toString().length - 2];
+                secondsElement.innerHTML = cents.toString()[cents.toString().length - 3];
+                tenSecsElement.innerHTML = cents.toString()[cents.toString().length - 4];
+                minutesElement.innerHTML = cents.toString()[cents.toString().length - 5];
+            }
+        }, 10);
+/*
+        centsTime = setInterval(() => {
+            if (cents < 9) {
                 cents++;
                 centsElement.innerHTML = cents
             } else {
@@ -105,7 +139,7 @@ avvia.addEventListener("click", function () {
             }
         }, 10);
 
-
+*/
         if (!existingEventListenerPauseButton) {
             pausa.addEventListener('click', function () {
                 console.log('Hello World!')
