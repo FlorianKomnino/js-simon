@@ -43,29 +43,36 @@ avvia.addEventListener("click", function () {
             } else if (cents < 99){
                 //condizione che influenza dai decimi di secondo in giu
                 cents++;
-                centsElement.innerHTML = cents.toString()[cents.toString().length - 1];
-                decSecElement.innerHTML = cents.toString()[cents.toString().length - 2];
+                centsElement.innerHTML = cents % 10;
+                decSecElement.innerHTML = Math.floor(cents / 10);
             } else if (cents < 999){
-                //condizione che influenza dai secondi di secondo in giu
+                //condizione che influenza dai secondi in giu
                 cents++;
-                centsElement.innerHTML = cents.toString()[cents.toString().length - 1];
-                decSecElement.innerHTML = cents.toString()[cents.toString().length - 2];
-                secondsElement.innerHTML = cents.toString()[cents.toString().length - 3];
-            } else if (cents < 9999){
+                centsElement.innerHTML = (cents % 10);
+                decSecElement.innerHTML = Math.floor((cents % 100) / 10);
+                secondsElement.innerHTML = Math.floor(cents / 100);
+            } else if (cents < 5999){
                 //condizione che influenza dalle decine di secondi in giu
                 cents++;
-                centsElement.innerHTML = cents.toString()[cents.toString().length - 1];
-                decSecElement.innerHTML = cents.toString()[cents.toString().length - 2];
-                secondsElement.innerHTML = cents.toString()[cents.toString().length - 3];
-                tenSecsElement.innerHTML = cents.toString()[cents.toString().length - 4];
-            } else if (cents < 9999){
-                //condizione che influenza dai minuti di secondo in giu
+                centsElement.innerHTML = cents % 10;
+                decSecElement.innerHTML = Math.floor((cents % 100) / 10);
+                secondsElement.innerHTML = Math.floor((cents % 1000) / 100);
+                tenSecsElement.innerHTML = Math.floor(cents / 1000) ;
+            } else if (cents < 59999){
+                //condizione che influenza dai minuti in giu
                 cents++;
-                centsElement.innerHTML = cents.toString()[cents.toString().length - 1];
-                decSecElement.innerHTML = cents.toString()[cents.toString().length - 2];
-                secondsElement.innerHTML = cents.toString()[cents.toString().length - 3];
-                tenSecsElement.innerHTML = cents.toString()[cents.toString().length - 4];
-                minutesElement.innerHTML = cents.toString()[cents.toString().length - 5];
+                centsElement.innerHTML = cents % 10;
+                decSecElement.innerHTML = Math.floor((cents % 100) / 10);
+                secondsElement.innerHTML = Math.floor((cents % 1000) / 100);
+                tenSecsElement.innerHTML = Math.floor((cents % 6000) / 1000);
+                minutesElement.innerHTML = Math.floor(cents / 6000);
+            } else {
+                centsElement.innerHTML = cents % 10;
+                decSecElement.innerHTML = Math.floor((cents % 100) / 10);
+                secondsElement.innerHTML = Math.floor((cents % 1000) / 100);
+                tenSecsElement.innerHTML = Math.floor((cents % 6000) / 1000);
+                minutesElement.innerHTML = Math.floor(cents / 60000);
+                tenMinutesElement.innerHTML = Math.floor(cents / 60000);
             }
         }, 10);
 /*
